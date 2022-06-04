@@ -22,9 +22,8 @@ const options = {
     onClose(selectedDates) {
         if (selectedDates[0] < currentDate ) {
             Notiflix.Notify.failure('Please choose a date in the future');
-        } 
-        else {
-            startBtn.disabled = true;
+        } else {
+            startBtn.disabled = false;
         }
     },
 };
@@ -40,6 +39,7 @@ function convertMs(ms) {
             clearInterval(timerId);
             Notiflix.Notify.info('Time is over');
         } else {
+            startBtn.disabled = true;
             const second = 1000;
             const minute = second * 60;
             const hour = minute * 60;
